@@ -11,8 +11,12 @@ module.exports = Phpcbf =
   config:
     executablePath:
       type: 'string'
-      default: ('phpcbf')
+      default: 'phpcbf'
       description: 'Path to the `phpcbf` executable.'
+    standard:
+      type: 'string'
+      default: 'PSR2'
+      description: 'The PHPCS coding standard to use.'
 
   activate: (state) ->
     @subscriptions = new CompositeDisposable
@@ -20,20 +24,23 @@ module.exports = Phpcbf =
     @subscriptions.add atom.config.observe 'phpcbf.executablePath',
       (executablePath) => @executablePath = executablePath
 
+    @subscriptions.add atom.config.observe 'phpcbf.standard',
+      (standard) => @standard = standard
+
     # @TODO: scope to PHP files.
-    @subscriptions.add atom.commands.add 'atom-workspace', 'phpcbf:run': => @run()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'phpcbf:fix': => @fix()
 
   deactivate: ->
     @subscriptions.dispose()
 
-  run: ->
+  fix: ->
     which @executablePath, (err, phpcbf) =>
       # @TODO: handle error properly: display to the user.
       if err
         throw err
       else if editor = atom.workspace.getActiveTextEditor()
         tempFile = tempWrite.sync(editor.getText())
-        args = ['--no-patch', tempFile]
+        args = ["--no-patch", "--standard=#{@standard}", tempFile]
         childProcess.execFile phpcbf, args, (err, stdOut, stdErr) =>
           # Ugh. PHPCBF exits 1 for no apparent reason???
           if err and stdErr.length

@@ -1,8 +1,8 @@
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Run phpcbf'
-      'command': 'phpcbf:run'
+      'label': 'Run phpcbf on current file'
+      'command': 'phpcbf:fix'
     }
   ]
 'menu': [
@@ -12,8 +12,8 @@
       'label': 'phpcbf'
       'submenu': [
         {
-          'label': 'Run'
-          'command': 'phpcbf:run'
+          'label': 'Fix current file'
+          'command': 'phpcbf:fix'
         }
       ]
     ]

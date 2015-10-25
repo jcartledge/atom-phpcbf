@@ -1,10 +1,9 @@
 {
   "name": "phpcbf",
   "main": "./lib/phpcbf",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Run phpcbf on the current file.",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "phpcbf:run"
   },

@@ -1,0 +1,21 @@
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Run phpcbf'
+      'command': 'phpcbf:run'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'phpcbf'
+      'submenu': [
+        {
+          'label': 'Run'
+          'command': 'phpcbf:run'
+        }
+      ]
+    ]
+  }
+]

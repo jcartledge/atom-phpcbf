@@ -1,0 +1,20 @@
+{
+  "name": "phpcbf",
+  "main": "./lib/phpcbf",
+  "version": "0.0.1",
+  "description": "Run phpcbf on the current file.",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "phpcbf:run"
+  },
+  "repository": "https://github.com/atom/phpcbf",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "temp-write": "2.0.1",
+    "which": "1.2.0"
+  }
+}

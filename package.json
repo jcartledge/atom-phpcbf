@@ -8,7 +8,7 @@
   "activationCommands": {
     "atom-workspace": "phpcbf:run"
   },
-  "repository": "https://github.com/atom/phpcbf",
+  "repository": "https://github.com/jcartledge/atom-phpcbf",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

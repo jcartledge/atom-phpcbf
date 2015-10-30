@@ -27,13 +27,17 @@ module.exports = Phpcbf =
     @subscriptions.add atom.config.observe 'phpcbf.standard',
       (standard) => @standard = standard
 
-    # @TODO: scope to PHP files.
     @subscriptions.add atom.commands.add 'atom-workspace', 'phpcbf:fix': => @fix()
 
   deactivate: ->
     @subscriptions.dispose()
 
   fix: ->
+    editor = atom.workspace.getActiveTextEditor();
+    if (editor.getGrammar().name != "PHP")
+        atom.notifications.addWarning("Can't reformat #{editor.getGrammar().name} files");
+        return;
+
     which @executablePath, (err, phpcbf) =>
       # @TODO: handle error properly: display to the user.
       if err

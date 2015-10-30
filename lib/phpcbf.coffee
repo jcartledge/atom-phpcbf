@@ -50,3 +50,6 @@ module.exports = Phpcbf =
             });
           else
             editor.setText(fs.readFileSync(tempFile, 'utf8'))
+            atom.notifications.addSuccess("Reformatted to #{@standard}", {
+                detail: stdOut,
+            });

@@ -1,7 +1,7 @@
 {
   "name": "phpcbf",
   "main": "./lib/phpcbf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run phpcbf on the current file.",
   "keywords": [],
   "activationCommands": {

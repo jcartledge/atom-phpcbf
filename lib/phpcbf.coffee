@@ -35,16 +35,18 @@ module.exports = Phpcbf =
 
   fix: ->
     which @executablePath, (err, phpcbf) =>
-      # @TODO: handle error properly: display to the user.
       if err
-        throw err
+        atom.notifications.addError('Could not find phpcbf executable', {
+            detail: err.message,
+        })
       else if editor = atom.workspace.getActiveTextEditor()
         tempFile = tempWrite.sync(editor.getText())
         args = ["--no-patch", "--standard=#{@standard}", tempFile]
         childProcess.execFile phpcbf, args, (err, stdOut, stdErr) =>
           # Ugh. PHPCBF exits 1 for no apparent reason???
           if err and stdErr.length
-            console.log arguments
-            throw err
+            atom.notifications.addError("Unexpected error", {
+                detail: stdErr,
+            });
           else
             editor.setText(fs.readFileSync(tempFile, 'utf8'))

@@ -35,8 +35,8 @@ module.exports = Phpcbf =
   reformat: ->
     editor = atom.workspace.getActiveTextEditor();
     if (editor.getGrammar().name != "PHP")
-        atom.notifications.addWarning("Can't reformat #{editor.getGrammar().name} files");
-        return;
+        atom.notifications.addError("Can't reformat #{editor.getGrammar().name} files")
+        return
 
     which @executablePath, (err, phpcbf) =>
       # @TODO: handle error properly: display to the user.

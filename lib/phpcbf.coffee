@@ -35,12 +35,12 @@ module.exports = Phpcbf =
   reformat: ->
     editor = atom.workspace.getActiveTextEditor();
     if (editor.getGrammar().name != "PHP")
-        atom.notifications.addError("Can't reformat #{editor.getGrammar().name} files")
+        atom.notifications.addError("Can't reformat #{editor.getGrammar().name} files.")
         return
 
     which @executablePath, (err, phpcbf) =>
       if err
-        atom.notifications.addError('Could not find phpcbf executable', {
+        atom.notifications.addError('Could not find phpcbf executable.', {
             detail: err.message,
         })
       else if editor = atom.workspace.getActiveTextEditor()
@@ -49,11 +49,11 @@ module.exports = Phpcbf =
         childProcess.execFile phpcbf, args, (err, stdOut, stdErr) =>
           # Ugh. PHPCBF exits 1 for no apparent reason???
           if err and stdErr.length
-            atom.notifications.addError("Unexpected error", {
+            atom.notifications.addError('Unexpected error.', {
                 detail: stdErr,
             });
           else
             editor.setText(fs.readFileSync(tempFile, 'utf8'))
-            atom.notifications.addSuccess("Reformatted to #{@standard}", {
+            atom.notifications.addSuccess("Reformatted to #{@standard}.", {
                 detail: stdOut,
             });

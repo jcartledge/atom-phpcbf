@@ -8,5 +8,5 @@
 
 ## 0.2.0
 
- - Rename command: fix -> reformat
- -
+ - Rename command: fix -> reformat.
+ - Error on attempt to reformat wrong syntax.

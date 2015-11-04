@@ -41,7 +41,7 @@ module.exports = Phpcbf =
     which @executablePath, (err, phpcbf) =>
       if err
         atom.notifications.addError('Could not find phpcbf executable.', {
-            detail: err.message,
+          detail: err.message,
         })
       else if editor = atom.workspace.getActiveTextEditor()
         tempFile = tempWrite.sync(editor.getText())
@@ -50,10 +50,10 @@ module.exports = Phpcbf =
           # Ugh. PHPCBF exits 1 for no apparent reason???
           if err and stdErr.length
             atom.notifications.addError('Unexpected error.', {
-                detail: stdErr,
+              detail: stdErr,
             });
           else
             editor.setText(fs.readFileSync(tempFile, 'utf8'))
             atom.notifications.addSuccess("Reformatted to #{@standard}.", {
-                detail: stdOut,
+              detail: stdOut,
             });

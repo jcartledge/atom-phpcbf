@@ -28,12 +28,12 @@ module.exports = Phpcbf =
       (standard) => @standard = standard
 
     # @TODO: scope to PHP files.
-    @subscriptions.add atom.commands.add 'atom-workspace', 'phpcbf:fix': => @fix()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'phpcbf:reformat': => @reformat()
 
   deactivate: ->
     @subscriptions.dispose()
 
-  fix: ->
+  reformat: ->
     which @executablePath, (err, phpcbf) =>
       # @TODO: handle error properly: display to the user.
       if err

@@ -5,7 +5,7 @@
   "description": "Run phpcbf on the current file.",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": "phpcbf:fix"
+    "atom-workspace": "phpcbf:reformat"
   },
   "repository": "https://github.com/jcartledge/atom-phpcbf",
   "license": "MIT",

@@ -2,7 +2,7 @@
   'atom-text-editor': [
     {
       'label': 'PHPCBF: Reformat'
-      'command': 'phpcbf:fix'
+      'command': 'phpcbf:reformat'
     }
   ]
 'menu': [
@@ -13,7 +13,7 @@
       'submenu': [
         {
           'label': 'Reformat'
-          'command': 'phpcbf:fix'
+          'command': 'phpcbf:reformat'
         }
       ]
     ]

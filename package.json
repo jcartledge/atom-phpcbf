@@ -1,6 +1,6 @@
 {
   "name": "phpcbf",
-  "main": "./lib/phpcbf",
+  "main": "./lib/phpcbf.js",
   "version": "0.2.0",
   "description": "Run phpcbf on the current file.",
   "keywords": [],

@@ -1,6 +1,6 @@
 # phpcbf
 
-**DEPRECATED** - I no longer use Atom and haven't updated in ages. Feel free to fork and take it over if you still use this, otherwise I recommend you use https://github.com/Glavin001/atom-beautify.
+**DEPRECATED** - I no longer use Atom and have no plans to update this plugin. Feel free to fork and take it over if you still use this, otherwise I recommend you use https://github.com/Glavin001/atom-beautify.
 
 ---
 
